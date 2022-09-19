@@ -1,4 +1,15 @@
-#Enerji Kırıcı Yapının Belirlenmesi
+"""
+Hello I am the Developer of This Code
+This Coding has been coded for Konya Technical University Civil Engineering Hydraulics Department.
+With this code, the energy breaker pool type of the building has been determined according to the USBR-1987 standards.
+The regulator has been verified according to hydrostatic forces.
+Python Math Library Used
+This code was developed by Hüseyin Furkan YALVAÇ on 17.11.2022
+Advisor: Cihangir KÖYCEĞİZ
+
+"""
+
+#Determination of Energy Breaking Structure
 import random
 import math
 
@@ -27,7 +38,7 @@ while True:
 V=((Qmax)/(B*H1))
 Fr=((V)/((9.81*H1)**0.5))
 print(f"Hız Değeri:{V}")
-print(f"Froud Sayısı:{Fr}") # Burada Bulunan Değerler İle Havuz Tipi Seçilir.
+print(f"Froud Sayısı:{Fr}") # The Pool Type is Selected with the Values Found here.
 if(1<Fr<1.7):
      print("Havuz 1.Tip")
      print(f"Havuz Uzunluğu{5*H2}")
@@ -63,12 +74,12 @@ else:
     print("Havuz Tipi USBR Standartları Dışında")
 
 
-#Kret Genişliği Taban Genişliği
+# Crest Width Base Width
 horan=(Ho/(P+Ho))
 psu=1
 m=0.7
 pbeton=2.5
-poran=(pbeton/psu) #Betonun ÖZkütlesinin Su öZkütlesine Oranı
+poran=(pbeton/psu) # Ratio of Concrete Density to Water Density
 C1=1-((horan**2)*(2-horan))
 C2=1-((horan**2)*(3-2*horan))
 tana=((C2)/((C1*poran)-m))**0.5
@@ -77,7 +88,7 @@ Bta=(Ho+P)*tana
 print(f"Taban Genişliği:{Bta}")
 print(f"Kret Genişliği:{B}")
 print(f"Tepe Açısı:{math.degrees(math.atan(tana))}")
-# Gövdeye Etkiyen Kuvvetlerin Tahkiki
+# Investigation of Forces Acting on the Body
 n=0.3
 P1=(((P*P)/2)*psu)
 P2=(((P+(P+2))/2)*2*psu)
@@ -86,7 +97,7 @@ G2=(((Bta-B)*P)/2)*pbeton
 G3=Bta*2*pbeton
 U1=Bta*n*psu*(P+2)
 U2=((Bta*((m*psu*(P+2))-(n*psu*(P+2))))/2)*psu
-#Devrilme Tahkiki
+# Overturn Inspection
 Mk=(G1*(Bta-(B/2)))+(G2*((Bta-B)*0.66666))+((G3)*(Bta/2))
 Md=(P1*((P*0.333)+2))+(P2*1)+(U1*(Bta*0.66666))+(U2*(Bta*0.5))
 A=Mk/Md
@@ -95,7 +106,7 @@ if(1.5<=A):
 else:
     print("Yapı Devrilmeye Karşı Güvensizdir")
 
-#Kayma Tahkiki
+# Slip Inspection
 Pkay=P1+P2
 Pkor=G1+G2+G3-(U1+U2)
 if(0.4<=Pkay/Pkor):
@@ -110,7 +121,7 @@ if(0.4<=Pkay/Pkor):
 else:
     print("Yapı Kaymaya Karşı Güvenlidir")
 
-# Taban Basıncı Tahkiki
+# Base Pressure Inspection
 Ntop=G1+G2+G3
 Mtop=-(P1*((P/2)+2))-(P2*1)+(G1*((Bta/2)-(B/2)))+(G2*((Bta*0.5)-(((Bta-B)*0.333)+B)))+(U2*((Bta*0.5)-(Bta*0.333)))
 A=Bta*1
@@ -121,7 +132,7 @@ if(Qmax<=25 and 0<=Qmin):
     print("Taban Basıncı Uygundur")
 else:
     print("Taban Basıncı Uygun Değildir")
-#Sızma Tahkiki
+# Infiltration Inspection
 
 H=P+tk
 L=C*H
