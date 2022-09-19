@@ -1,10 +1,12 @@
 """
 Hello I am the Developer of This Code
+This Coding has been coded for Konya Technical University Civil Engineering Hydraulics Department.
 First of all, we need to open a separate txt file for the x and y values between them and their names should be xdeg.txt and ydeg.txt.
 Please enter your school number for this project Usage.
 In this coding, there is a field with the Cross Method.
 It is found in the environment with this code
-This code was developed by Hüseyin Furkan Yalvaç on 05.04.2022
+This code was developed by Hüseyin Furkan YALVAÇ on 26.05.2022
+Advisor: Cihangir KÖYCEĞİZ
 """
 def alanbul(A):
     try:
