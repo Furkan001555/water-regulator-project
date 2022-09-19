@@ -1,5 +1,11 @@
-# Öncelikle aralarında , olan x ve y değerleri için ayrı ayrı txt dosyası açmamız ve bunların isminin xdeg.txt ve ydeg.txt olması gerekmetedir.
-# Bu proje Kullanımı için okul numaranızı giriniz
+"""
+Hello I am the Developer of This Code
+First of all, we need to open a separate txt file for the x and y values between them and their names should be xdeg.txt and ydeg.txt.
+Please enter your school number for this project Usage.
+In this coding, there is a field with the Cross Method.
+It is found in the environment with this code
+This code was developed by Hüseyin Furkan Yalvaç on 05.04.2022
+"""
 def alanbul(A):
     try:
         if (len(A) == 9 or A == int()):
