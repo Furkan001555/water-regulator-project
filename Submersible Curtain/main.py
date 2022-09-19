@@ -1,3 +1,11 @@
+"""
+Hello I am the Developer of This Code
+This Coding has been coded for Konya Technical University Civil Engineering Hydraulics Department.
+With this code, the submersible curtain is dimensioned.
+The Submersible Curtain has been taken perpendicular to the water surface.
+This code was developed by Hüseyin Furkan YALVAÇ on 27.05.2022
+Advisor: Cihangir KÖYCEĞİZ
+"""
 import random
 i=0
 Bcc=0
@@ -53,14 +61,14 @@ print(f"Izgara Debiniz:{Qc} m^3/sn,")
 print(f"Izgara Hızının:{Viz} m^2/sn,")
 print(f"Izgara Alanınız:{Aiz} m^2")
 
-# Izgara Yük Kaybının Belirlenmesi
+# Determination of Grid Head Loss
 Be=float(input("Dalgıç Perde Tipinize Göre Katsayı Giriniz:"))
 Dh=Be*(((5/Bcc)**1.333)*(Viz/19.62))
 print(f"Izgara Yük Kaybı:{Dh}")
-# Dalgıç Perde Yük Kaybı
+# Submersible Curtain Head Loss
 Dhd=((Viz)**2)*0.0509
 print(f"Dalgıç Perde Yük Kaybı{Dhd}")
-# Toplam Su Yüksekliğinin Bulunması
+# Finding the Total Water Height
 E1=Hc+((Qc/(Bcc*Hc))**2)
 E2=E1-Dh-Dhd-1
 print(E2)
