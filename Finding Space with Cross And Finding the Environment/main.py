@@ -17,8 +17,8 @@ def alanbul(A):
             by = ay.readlines()
             cy = by[0]
             dy = cy.split(",")
-            B = int(A[-2])  # Öğrenci Numarasının 8.Hanesini Alır.
-            C = int(A[1])  # Öğrenci Numarasının 2.Hanesini Alır.
+            B = int(A[-2])
+            C = int(A[1])
             D = 0.9 + B / 100
             E = 0.8 + C / 100
             x = 0
@@ -78,8 +78,8 @@ def islak(A):
             by = ay.readlines()
             cy = by[0]
             dy = cy.split(",")
-            B = int(A[-2])  # Öğrenci Numarasının 8.Hanesini Alır.
-            C = int(A[1])  # Öğrenci Numarasının 2.Hanesini Alır.
+            B = int(A[-2])
+            C = int(A[1]) 
             D = 0.9 + B / 100
             E = 0.8 + C / 100
             x = 0
