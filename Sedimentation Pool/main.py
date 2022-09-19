@@ -1,10 +1,13 @@
-#Çökeltim Havuzu Kodları
-#Re Sayısına Bağlı Olarak Geçiş Hali, Türbülan Akım Ve Laminee Akım Şartları Aranmaktadır
-#Random Kütüphanesi Kullanılmıştır
-#Hüseyin Furkan Yalvaç Tarafından 14.09.2022 Tarihinde Geliştirilmiştir.
-"""----------------------------------------------------------------------"""
+"""
+Hello I am the Developer of This Code
+This Coding has been coded for Konya Technical University Civil Engineering Hydraulics Department.
+Transition State, Turbulent Flow and Laminated Flow Conditions Are Required Depending on Re Number
+Resizes the pool depending on the flow conditions.
+This code was developed by Hüseyin Furkan YALVAÇ on 09.09.2022
+Advisor: Cihangir KÖYCEĞİZ
+"""
 import random
-#a Katsayısının Bulunması Ve Yatay Hızın Tespiti
+#Finding the a Coefficient and Determining the Horizontal Velocity
 D=float(input("Çökeltmek istediğiniz Dane Çapını Giriniz:"))
 Qmin=float(input("Minimum Debiyi Giriniz:"))
 Pdane=float(input("Dane Özgül Ağırlığını Giriniz:"))
@@ -20,8 +23,9 @@ elif(0.1<D<1):
 else:
     a=36
 Va=round((a*(D**0.5)/100),1)
-# W Düşey Hızın Bulunması
+# Finding the W Vertical Velocity
 A=0
+#Determination of Current Type
 while True:
     Re=random.uniform(0,2000)
     if(Re<0.5):
@@ -56,7 +60,7 @@ while True:
 
 
 
-
+# Washing channel sizing
 if(1.5<=hc<=4 and 0.01<=J<=0.04):
       L=(hc*Va)/W
       Qc=Qmin*(0.4+(No/100))
