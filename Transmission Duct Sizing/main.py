@@ -1,14 +1,22 @@
+"""
+Hello I am the Developer of This Code
+With this code, the size of the structure was determined to transmit the water we received from the regulator structure.
+Energy Equations are Solved with this code.
+This code was developed by Hüseyin Furkan Yalvaç on 22.06.2022
+"""
+
+
 import random
 
-Hc=float(input("Çökeltim Havuzunun Yüksekliği:")) #Bu Değer 3. Hafta Kodlarından Alınmıstır 3.hafta Kodları İle Kullanıldığında Buralar Silinebilir..
-Qc=float(input("Debi:"))                          #Bu Değer 3. Hafta Kodlarından Alınmıstır 3.hafta Kodları İle Kullanıldığında Buralar Silinebilir..
-Bcc=float(input("Cökeltim HAvuzu Genisliği:"))    #Bu Değer 3. Hafta Kodlarından Alınmıstır 3.hafta Kodları İle Kullanıldığında Buralar Silinebilir..
-#İsale Kanalı Giriş Yüksekliğinin Belirlenmesi
+Hc=float(input("Çökeltim Havuzunun Yüksekliği:")) 
+Qc=float(input("Debi:"))                          
+Bcc=float(input("Cökeltim HAvuzu Genisliği:"))    
+#Determination of Transmission Duct Inlet Height
 while(True):
   Hi=round(random.uniform(1,5),2)
-  Ec=Hc+(0.00815) #Va hızı 0.4 m/s alınmıştır.
+  Ec=Hc+(0.00815) #Va speed is taken as 0.4 m/s.
   Ei=Hi+(((Qc/(Bcc*Hi))**2)/19.62)
-  if((Ei-0.01)<=Ec<=(Ei+0.01)): #Tam Değer Bulunmaya Çalışıldığında Binlerce Kez Denenmektedir Ancak Bir aralık Verildiğinde Daha Kısa Sürede Tespit Edilir.
+  if((Ei-0.01)<=Ec<=(Ei+0.01)): #It is tried thousands of times when trying to find the exact value, but it is detected in a shorter time when an interval is given.
       print(f"İsale Kanalı Giriş Yüksekliği:{Hi} m")
       print(f"Çökeltim Havuzu Su Enerjisi:{Ec}")
       print(f"İsale Kanalı Giriş Enerjisi:{Ei}")
@@ -16,7 +24,7 @@ while(True):
   else:
       print(f"Seçilen İsale Kanalı Giriş Yüksekliği:{Hi} m")
 
-#Eisale Belirlenmesi
+#Eisale Determination
 while(True):
   Dh=random.uniform(0,0.1)
   Dhh=2.88*Bcc*((0.67*(Dh**1.5))+((Dh**0.5)*Hc))
@@ -30,7 +38,7 @@ Dz=float(input("Yıkama Kanalı Yüksekliği:"))
 
 Ei=Ec-Dz-Dh
 print(f"İsale Kanalı Su Enerjisi:{Ei} m")
-# İsale Kanalı Giriş Yükeskliğinin Belirlenmesi
+# Determination of Transmission Duct Inlet Height
 while(True):
     His=random.uniform(0,1)
     Eis=His+(((Qc/(Bcc*His))**2)/19.62)
@@ -42,7 +50,7 @@ while(True):
         print(f"Seçilen İsale Kanalı Giriş Yüksekliği:{His}")
         print(Eis)
 
-#İletim Borusu Dic Bulunması,Froude Sayısı Tespiti Ve Akış Türünün Belirlenmesi
+# Finding Transmission Pipe Dic, Detection of Froude Number and Determination of Flow Type
 Qc=4.7
 while(True):
     Vil=float(input("İletim Borusunda Kullanılacak Hızı Giriniz:"))
@@ -62,7 +70,7 @@ if(Fr<1):
     print("Akış Nehir Rejmidir")
 else:
     print("Akış Sel Rejmidir")
-# S Değerinin Bulunması
+# Finding the S Value
 VA=float(input("Wittman Quick Eğrisi:"))
 VB=float(input("Gordon Eğrisi:"))
 VC=float(input("Reddy Rickford Eğrisi:"))
@@ -74,7 +82,7 @@ print(MaxGrf)
 S=(Dic/1000)*MaxGrf
 print(f"S Değeri:{S} m")
 
-# Hsualma Yapısının Boyutlandırılması
+#  Sizing the Hsualma Structure
 Hsu=S+Dic+(0.3*Dic)
 print(f"Su Alma Yapısının Yüksekliği:{Hsu} m")
 print(f"Kare Teşkil Edildiğinden Lsu:{Hsu} m")
