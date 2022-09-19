@@ -3,7 +3,7 @@ Hello I am the Developer of This Code
 This Coding has been coded for Konya Technical University Civil Engineering Hydraulics Department.
 In this code, the graph is formulated.
 The maximum, average and minimum water levels affecting the body were determined by trial and error method.
-This code was developed by Hüseyin Furkan YALVAÇ on 24.09.2022
+This code was developed by Hüseyin Furkan YALVAÇ on 22.07.2022
 Advisor: Cihangir KÖYCEĞİZ
 """
 
