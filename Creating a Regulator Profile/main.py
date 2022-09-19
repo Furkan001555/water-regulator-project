@@ -1,5 +1,14 @@
-Ho1=float(input("MAKSİMUM SU SEVİYESİNİ GİRİNİZ:")) # Yukarıdaki Kod Parçasıyla Çalıştığında Bu kısmı Silebilirsiniz.
-#Menba Kısmının Boyutlandırılması
+"""
+Hello I am the Developer of This Code
+This Coding has been coded for Konya Technical University Civil Engineering Hydraulics Department.
+By substituting the values given with this code, the dimensioning of the structure is done.
+It has tried to interpolate with the limitations given with this code.
+This code was developed by Hüseyin Furkan YALVAÇ on 13.09.2022
+Advisor: Cihangir KÖYCEĞİZ
+"""
+
+Ho1=float(input("MAKSİMUM SU SEVİYESİNİ GİRİNİZ:"))
+# Sizing of the Upstream Section
 men=[[0,0],[-0.1,-0.005],[-0.2,-0.035],[-0.3,-0.125]]
 for i in range(len(men)):
 
@@ -11,8 +20,8 @@ for i in range(len(men)):
 
 
 
-#Mansap Kısmının Boyutlandırılması
-A=int(input("Hassasiyet Giriniz:")) #Bu Kısım Numpy Kütüphanesiylede Çözülebilir Ancak Versiyondan Dolayı İndiremedim
+# Sizing the Downstream Section
+A=int(input("Hassasiyet Giriniz:")) # This Part Can Be Solved With The Numpy Library, But I Could Not Download It Due To The Version
 flo=[]
 for i in range(A):
        B=i*0.1
@@ -20,10 +29,10 @@ for i in range(A):
 
 for i in range(len(flo)):
      xmas=flo[i]
-     Ymas=-Ho1*0.47*((xmas/Ho1)**1.80) # Bu kısımda Projede - değerler alınmış o yüzden - ile çarptım
+     Ymas=-Ho1*0.47*((xmas/Ho1)**1.80) # In this part - values are taken in the Project, so I multiplied with -
      print(f"{i}.Y Değeriniz:{Ymas}")
-#Etek Kısmının Boyutlandırılması
-#Bu Kısımda Sadece Enterpolasyon Yaptırdık Formülüze Edilmesi Durumunda Enterpolasyona Gerek Kalmaz.
+# Sizing the Skirt
+# In this part, we have only interpolated, and if it is formulated, no interpolation is required.
 
 
 BirSayi=float(input("Birinici Aralığı Giriniz:"))
@@ -84,4 +93,4 @@ if(Bagh1<BagSon<Bagh1):
 
 else:
     print("Lütfen Geçerli Aralık Giriniz")
-#Hocam Bu Kısımda Enterpolasyon Yapmaya Çalıştım Ama Hatalar Olabilir Sizde Müsait Olduğunuzda Kontrol Edersiniz. En Kısa Sürede Yanınıza Uğramaya Çalışacağım    """
+# I Tried To Interpolate In This Part, But There May Be Errors
