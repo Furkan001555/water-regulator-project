@@ -1,8 +1,10 @@
 """
 Hello I am the Developer of This Code
+This Coding has been coded for Konya Technical University Civil Engineering Hydraulics Department.
 With this code, the size of the structure was determined to transmit the water we received from the regulator structure.
 Energy Equations are Solved with this code.
-This code was developed by Hüseyin Furkan Yalvaç on 22.06.2022
+This code was developed by Hüseyin Furkan YALVAÇ on 22.06.2022
+Advisor: Cihangir KÖYCEĞİZ
 """
 
 
