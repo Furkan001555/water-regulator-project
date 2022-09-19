@@ -9,81 +9,66 @@ Advisor: Cihangir KÖYCEĞİZ
 
 import random
 
-Hc=float(input("Çökeltim Havuzunun Yüksekliği:")) 
-Qc=float(input("Debi:"))                          
-Bcc=float(input("Cökeltim HAvuzu Genisliği:"))    
-#İsale Kanalı Giriş Yüksekliğinin Belirlenmesi
-while(True):
-  Hi=round(random.uniform(1,5),2)
-  Ec=Hc+(0.00815) #Va hızı 0.4 m/s alınmıştır.
-  Ei=Hi+(((Qc/(Bcc*Hi))**2)/19.62)
-  if((Ei-0.01)<=Ec<=(Ei+0.01)): #Tam Değer Bulunmaya Çalışıldığında Binlerce Kez Denenmektedir Ancak Bir aralık Verildiğinde Daha Kısa Sürede Tespit Edilir.
-      print(f"İsale Kanalı Giriş Yüksekliği:{Hi} m")
-      print(f"Çökeltim Havuzu Su Enerjisi:{Ec}")
-      print(f"İsale Kanalı Giriş Enerjisi:{Ei}")
-      break
-  else:
-      print(f"Seçilen İsale Kanalı Giriş Yüksekliği:{Hi} m")
+Qmax5 = float(input("MAKSİMUM DEBİYİ GİRİNİZ:"))
+Qort5 = float(input("ORTALAMA DEBİYİ GİRİNİZ:"))
+Qmin5 = float(input("MİNİMUM DEBİYİ GİRİNİZ:"))
+Hsav = float(input("LÜTFEN SAVAK YÜKSEKLİĞİNİ GİRİNİZ:"))
+while True:
 
-#Eisale Belirlenmesi
-while(True):
-  Dh=random.uniform(0,0.1)
-  Dhh=2.88*Bcc*((0.67*(Dh**1.5))+((Dh**0.5)*Hc))
-  if( (Qc-0.1)<=Dhh<=(Qc+0.1)):
-      print(f"Yıkama Kanalı Yüksekliğinden Dolayı Oluşan Yük Kaybı:{Dh} m")
-      break
-  else:
-      print(f"Seçilen Yük Kaybı:{Dh}")
-      print(Dhh)
-Dz=float(input("Yıkama Kanalı Yüksekliği:"))
+    pHo=round(random.uniform(0.01,3),2)
 
-Ei=Ec-Dz-Dh
-print(f"İsale Kanalı Su Enerjisi:{Ei} m")
-# İsale Kanalı Giriş Yükeskliğinin Belirlenmesi
-while(True):
-    His=random.uniform(0,1)
-    Eis=His+(((Qc/(Bcc*His))**2)/19.62)
-    if(Ei-0.01<=Eis<=Ei+0.01):
-        print(f"İsale Kanalı Giriş Yüksekliği:{His} m")
-        print(Eis)
-        break
+    if(pHo>2.75):
+        Cmax=2.18
     else:
-        print(f"Seçilen İsale Kanalı Giriş Yüksekliği:{His}")
-        print(Eis)
+       Cmax = ((-0.0210) * (pHo ** 6)) + ((0.2148) * (pHo ** 5)) - ((0.915) * (pHo ** 4)) + ((1.982) * (pHo ** 3)) - (
+                   (2.3081) * (pHo ** 2)) + ((1.414) * (pHo ** 1)) + (1.7719)  #Hocam Burada Denklemde Hata Olabilir Burayı Kontrol Etmekte Fayda Var
 
-#İletim Borusu Dic Bulunması,Froude Sayısı Tespiti Ve Akış Türünün Belirlenmesi
-Qc=4.7
-while(True):
-    Vil=float(input("İletim Borusunda Kullanılacak Hızı Giriniz:"))
-    if(0.6<Vil<1.8):
-        Bad=int(input("Kullanmak İstediğiniz Boru Adedini Giriniz:"))
-        print(f"İsale Kanalındaki Kullanılacak Debi {Qc*1000} L/sn")
-        Qis=Qc/Bad
-        Dic=((4*Qis)/(Vil*3.141592))**0.5
-        print(f"İletim Borularının İç Çapları {Dic} mm")
-        break
+
+    Ho1=float(Hsav/pHo)
+    Cmaxr=round(Cmax,2)
+    Qmaxr=Cmaxr*Hsav*((Ho1)**1.5)
+    if((Qmaxr-1)<=Qmax5<=(Qmaxr+1)):
+
+
+
+        Hortma = round(random.uniform(0.01, 1.6), 2)
+        Cortma = (0.3 * (Hortma ** 3)) - (0.14 * (Hortma ** 2)) + (0.32 * Hortma) + 0.79 #Hocam Yine Aynı Şekilde Denklemi Kontrol Ederdek Daha İyi Olabilir
+        Hort = Hortma * Ho1
+        Cort = Cortma * Cmaxr
+        Qort = Cort * Hsav * (Hort ** 1.5)
+        if ((Qort5 - 0.8) <= Qort <= (Qort5 + 0.8)):
+
+            Hminma = round(random.uniform(0.01, 1), 2)
+            Cminma = (0.3 * (Hminma ** 3)) - (0.14 * (Hminma ** 2)) + (
+                    0.32 * Hminma) + 0.79  # Hocam Yine Aynı Şekilde Denklemi Kontrol Ederdek Daha İyi Olabilir
+            Hmin = Hminma * Ho1
+            Cmin = Cminma * Cmaxr
+            Qmin = Cmin * Hsav * (Hmin ** 1.5)
+            if ((Qmin5 - 0.8) <= Qmin <= (Qmin5 + 0.8)):#Hocam Bu kısımda Hassasiyeti Ayarlayabilriz Yine Yukarıdaki İf Komutlarıylada Ayarlayabiliriz Ama Hassasiyet Arttıkça Verileri Bulması Uzun Sürüyor
+
+                print("LÜTFEN VERİLERİ DÜZELTİNİZ HASSAİYET OLDUĞUNDAN DÜZELTME YAPILMALIDIR")
+                print(f"P/HO Değeriniz:{pHo} Seçıilmiştir.")
+                print(f"Cmax Değeriniz:{Cmaxr}")
+                print(f"Cort Değeriniz:{Cort}")
+                print(f"Cmin Değeriniz:{Cmin}")
+                print(f"Hmax Değeriniz:{Ho1}")
+                print(f"Hort Değeriniz:{Hort}")
+                print(f"Hmin Değeriniz:{Hmin}")
+                print(f"Bulunan Maksimum Debi:{Qmaxr}")
+                print(f"Bulunan Ortalama Debi:{Qort}")
+                print(f"Bulunan Minimum Debi:{Qmin}")
+                print(f"Maksimum Su Seviyesi:{Hsav+Ho1}")
+                print(f"Ortalama Su Seviyesi:{Hsav + Hort}")
+                print(f"Minimum Su Seviyesi:{Hsav + Hmin}")
+                break
+
+            else:
+                print(f"Seçilen:{Qmin}")
+                print(f"Verilen:{Qmin5}")
+        else:
+            print(f"Seçilen:{Qort}")
+            print(f"Verilen:{Qort5}")
+
     else:
-        print("Hız Değerini Tekrar Giriniz!!!!")
-
-Fr=Vil/(9.81*(Dic/1000))
-print(f"Froude Sayınız: {Fr}")
-if(Fr<1):
-    print("Akış Nehir Rejmidir")
-else:
-    print("Akış Sel Rejmidir")
-# S Değerinin Bulunması
-VA=float(input("Wittman Quick Eğrisi:"))
-VB=float(input("Gordon Eğrisi:"))
-VC=float(input("Reddy Rickford Eğrisi:"))
-VD=float(input("Denny Joung Eğrisi:"))
-
-Grf=[VA,VB,VC,VD]
-MaxGrf=max(Grf)
-print(MaxGrf)
-S=(Dic/1000)*MaxGrf
-print(f"S Değeri:{S} m")
-
-# Hsualma Yapısının Boyutlandırılması
-Hsu=S+Dic+(0.3*Dic)
-print(f"Su Alma Yapısının Yüksekliği:{Hsu} m")
-print(f"Kare Teşkil Edildiğinden Lsu:{Hsu} m")
+        print(f"Seçilen:{Qmaxr}")
+        print(f"Verilen:{Qmax5}")
