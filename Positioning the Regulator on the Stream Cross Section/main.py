@@ -1,8 +1,17 @@
+"""
+Hello I am the Developer of This Code
+This Coding has been coded for Konya Technical University Civil Engineering Hydraulics Department.
+
+This code was developed by Hüseyin Furkan YALVAÇ on 26.05.2022
+Advisor: Cihangir KÖYCEĞİZ
+"""
+
+
 import random
 
-Hc=float(input("Çökeltim Havuzunun Yüksekliği:")) #Bu Değer 3. Hafta Kodlarından Alınmıstır 3.hafta Kodları İle Kullanıldığında Buralar Silinebilir..
-Qc=float(input("Debi:"))                          #Bu Değer 3. Hafta Kodlarından Alınmıstır 3.hafta Kodları İle Kullanıldığında Buralar Silinebilir..
-Bcc=float(input("Cökeltim HAvuzu Genisliği:"))    #Bu Değer 3. Hafta Kodlarından Alınmıstır 3.hafta Kodları İle Kullanıldığında Buralar Silinebilir..
+Hc=float(input("Çökeltim Havuzunun Yüksekliği:")) 
+Qc=float(input("Debi:"))                          
+Bcc=float(input("Cökeltim HAvuzu Genisliği:"))    
 #İsale Kanalı Giriş Yüksekliğinin Belirlenmesi
 while(True):
   Hi=round(random.uniform(1,5),2)
